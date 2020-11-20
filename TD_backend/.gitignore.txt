@@ -1,0 +1,14 @@
+node_modules/
+*.txt
+*.history
+uploads/1552459612889-Solapur_Exp.sheet.xlsx
+uploads/1552459537986-Solapur_Exp.sheet.xlsx
+public/uploads/1554817985197-Solapur_Exp.sheet.xlsx
+public/uploads/1554817398763-Solapur_Exp.sheet.xlsx
+uploads/1554814158399-Solapur_Exp.sheet.xlsx
+uploads/1554813873500-Solapur_Exp.sheet.xlsx
+uploads/1554813685655-Solapur_Exp.sheet.xlsx
+public/uploads/1554814336500-Solapur_Exp.sheet.xlsx
+uploads/1554814186266-Solapur_Exp.sheet.xlsx
+public/uploads/1554817306014-Solapur_Exp.sheet.xlsx
+public/uploads/*
