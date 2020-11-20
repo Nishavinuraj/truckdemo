@@ -1,0 +1,231 @@
+html
+	head
+		title &lrm;
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=0.5')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		style.
+			body {
+			font-size: 10px;
+			}
+			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+				padding: 4px
+			}
+			@media print
+			{
+			.page-break {page-break-before:always}
+			}
+			@page { size: auto;  margin: 0mm; }
+			.panel {margin-bottom: 0}
+	body
+		- var n = 0;
+		- var i = 1;
+				
+
+			div(style="width: 100%;")
+
+				br
+				table.table.table-bordered(style="font-size: 10px; width: 90%; margin-left:auto; margin-right:auto;")
+					
+					//------------ Display Format -------------------
+					tr(style="text-align:center;")
+						td(colspan="10") 
+							h3 J. S. TRANSPORT CORPORATION
+
+					tr
+						th(colspan="2" rowspan="3" style="text-align:center;") Trpt Company Logo
+						th(colspan="6" style="text-align:center;") Heera Plaza Complex, Near Telephone Exchange Square, Central Avenue
+						th(colspan="2" rowspan="2" style="text-align:center;") Original For Recipient
+					
+					tr
+						//- th(colspan="2") 
+						th(colspan="6" style="text-align:center;") Contact No: 9890195657 / 9673235344 
+						//- th(colspan="2") 
+					
+					tr
+						th(colspan="2" style="text-align:center;") State:
+						th(colspan="1") Maharashtra
+						th(colspan="1" style="text-align:center;") State Code:
+						th(colspan="2" style="text-align:center;") 27
+						th(colspan="2") 
+
+					tr
+						th
+						th
+						th(colspan="2") 
+						th(colspan="3" style="text-align:center;") GST TIN : 27AAFFJ8703N3ZV
+						th(colspan="3") 
+					
+					tr(style="height: 21px;")
+						th(colspan="9")
+						th
+
+					tr(style="text-align:center;")
+						td(colspan="10") 
+							h4 
+								b Transportation Bill
+
+					tr
+						th(colspan="5") Invoice / Bill No :- #{ invoiceNo }
+						th(colspan="4") Bill to Party : 
+						th
+
+					tr 
+						th(colspan="3") Invoice date :- #{ billDate }
+						th
+						th
+						th(colspan="4") Name: Ultra Tech Cement Limited
+						th
+					tr 
+						th(colspan="3") Vendor Code :- 2405103
+						th
+						th
+						th
+						th
+						th
+						th
+						th
+
+					tr 
+						th(colspan="3") Goods transported: Cement
+						th
+						th
+						th(colspan="4") Address: Mumbai
+						th
+
+					tr 
+						th(colspan="5") Description of Service: Transportation 
+						th(colspan="4") GSTIN: 27AAACL6442LIZA
+						th
+
+					tr 
+						th(colspan="3") Reverse Charge (Y/N): N
+						th(colspan="2") HSN code: 9967
+						th(colspan="4") State: Maharashtra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; State Code: 27
+						th
+
+					
+					tr 
+						th(colspan="5") Place of Supply: NCW
+						th(colspan="5")
+
+					tr(style="height: 21px;") 
+						td(colspan="10")
+
+
+
+					//------------ Main Data -------------------
+					tr
+						th(style="text-align:right;") Sr No
+						th Di No
+						th LR No
+						th Disp. Date
+						th Sold To Party
+						th Destination
+						th Truck No
+						th(style="text-align:right;") Qty
+						th(style="text-align:right;") Rate
+						th(style="text-align:right;") Credit Amount
+					
+				
+					while n < total
+			
+						tr
+							td(style="text-align:right;") #{" "+result[n].srno}
+							td #{" "+result[n].bill_no}
+							td #{" "+result[n].lrno}
+							td #{" "+result[n].lrdate}
+							td #{" "+result[n].consignne}
+							td #{" "+result[n].destination}
+							td #{" "+result[n].truckno}
+							td(style="text-align:right;") #{" "+result[n].qty}
+							td(style="text-align:right;") #{" "+result[n].rate}
+							td(style="text-align:right;") #{" "+result[n].amount}
+
+						- n++
+						- i++
+
+					tr
+						th(colspan="2")
+							b Gross Total
+						th 
+						th 
+						th 
+						th 
+						th 
+						th(style="text-align: right;") #{ totalQTY }
+						th 
+						th(style="text-align: right;") #{ totalAmount }
+					tr 
+						td
+						td
+						td
+						td
+						td
+						td
+						td(colspan="2")
+							b Add: #{ cgst } % CGST
+						td
+						td(style="text-align: right;")
+							b #{ cgstTotal }
+
+					tr 
+						td
+						td
+						td
+						td
+						td
+						td
+						td(colspan="2")
+							b Add: #{ sgst } % SGST
+						td
+						td(style="text-align: right;")
+							b #{ sgstTotal }
+
+					tr 
+						td
+						td
+						td
+						td
+						td
+						td
+						td(colspan="2")
+							b Total Bill Amt:
+						td
+						td(style="text-align: right;")
+							b #{ mainTotal }
+
+					tr
+						td(colspan="9")
+							b Total Invoice amount in words
+						td
+					
+					tr
+						td(colspan="10" style="height: 38px;")
+					
+					tr
+						td(colspan="5")
+						td(colspan="5" style="text-align: center;")
+							b Signature & Common Seal
+				
+
+			
+				//- br
+				//- .row(style="text-align:center;")
+				//- 	.col-xs-6
+					
+				//- 	.col-xs-6
+				//- 		span
+				//- 			b For J. S Transport Corporation
+				//- 		br
+				//- 		br
+				//- 	.col-xs-6
+					
+				//- 	.col-xs-6
+				//- 		span
+				//- 			b AUTHORISED SIGNATURE
+
+
+

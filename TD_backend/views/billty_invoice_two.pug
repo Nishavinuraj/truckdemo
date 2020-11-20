@@ -1,0 +1,413 @@
+html
+	head
+		title &lrm;
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=0.5')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		style.
+			body {
+			font-size: 10px;
+			}
+			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+				padding: 4px
+			}
+			@page { size: auto;  margin: 0mm; }
+			.panel {margin-bottom: 0}
+	body
+		br
+		br
+		.container.invoice
+			br
+			br
+			
+			h5(style="text-align:center")
+
+				br
+				br
+				
+			
+			.invoice-body
+				.row
+					.col-xs-4
+						p(style="margin-top: 45px;")
+							b LR No. : #{" "+billty.lrno}
+						//- .panel.panel-default(style="padding:5px;")
+							//- p(style="margin-top:-20px")
+							| LR No. : #{" "+billty.lrno}
+							//- table(style="font-size: 10px")
+							//- 	//- tr
+							//- 	//- 	td LR No. : #{" "+billty.lrno}
+							//- 	tr
+							//- 		td #{" "+billty.consigner}
+							//- 	tr
+							//- 		td #{" "+resadd.bstreet1},#{" "+resadd.bstreet2},#{" "+resadd.bcity}
+							//- 	tr
+							//- 		td #{" "+resadd.bstate},#{" "+resadd.bzip},#{" "+resadd.bcountry},#{" "+resadd.bphone}
+							//- 	tr 
+							//- 		td Vendor Code: 2405103
+										
+					.col-xs-4
+						.panel.panel-default(style="padding:5px;")
+							table(style="font-size: 10px")
+								tr
+									td Customer's Name & Address
+								tr
+									td #{" "+billty.unloadingaddress}
+								tr
+									td #{" "+billty.contactperson}
+								tr
+									td #{" "+billty.phoneno}
+								tr
+									//- -var newdateis = billty.lrdate.split("-");
+									//- -var actdate = newdateis[2]+'/'+newdateis[1]+'/'newdateis[0];
+									td #{actdate} 
+									//- | Customer's Name & Address
+									//- br
+									//- u
+									//- 	p #{" "+billty.unloadingaddress}
+									//- 	p #{" "+billty.contactperson}
+									//- 	p #{" "+billty.phoneno}
+									//- | #{" "+billty.lrdate}
+					.col-xs-4
+						.panel.panel-default(style="padding:5px;")
+							table(style="font-size: 10px")
+								tr
+									td Date
+									td :
+									td 
+									td #{" "+billty.lrdate}
+								tr
+									td Truck No
+									td :
+									td 
+									td #{" "+billty.truckno}
+								tr
+									td From
+									td :
+									td 
+									td #{" "+billty.from}
+								tr
+									td To
+									td :
+									td 
+									td #{" "+billty.to}
+
+				.panel.panel-default
+					// <table class="table table-bordered table-condensed">
+					table.table.table-bordered
+						tbody(style='font-size: 10px;')
+							tr
+								td PACKAGES
+								td DESCRIPTION
+								td BAGS
+								td WEIGHT
+								td FREIGHT
+								td ADVANCE
+								td DIESEL
+								td BALANCE
+							
+							tr
+								td #{" "+billty.packages}
+								td #{" "+billty.contains}
+								td #{" "+billty.unit}
+								td #{" "+billty.actualweight}
+								td #{" "+billty.ppaymentmode}
+								td #{" "+billty.totaltruckexpences}
+								//- td #{" "+values.newtotal+" "}
+								
+								//- td #{""}
+								td #{""+billty.dqty}
+								td 
+						
+							
+							tr
+								td(rowspan="2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Receiver Stamp    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									br 
+									br
+									br
+									br
+									br
+								//- I/We have read and understand the terms &amp; condition printed on overleaf and agree to abide by same.
+								//- 	br
+								//- 	span GST Under forward charge
+								td 
+								td 
+								td(colspan="2") Driver Name: #{" "+billty.drivername}
+								td(colspan="2") POLICY NO.
+								td
+							tr
+								td Invoice No. : #{" "+billty.newinvoiceno} 
+									
+								td Gate Pass No. : #{" "+billty.newgatepass}
+								td 
+								td Driver LIC No. 
+								td DATE : 
+								td #{" "+billty.lrdate}
+								td 
+				.row
+					.col-xs-12
+						p I/We have read and understand the terms &amp; condition printed on overleaf and agree to abide by same.  GST Under forward charge
+
+				//- .row
+				//- 	.col-xs-12
+				//- 		.panel.panel-default(style="padding:20px;")
+			
+			br
+			br
+			br
+			br
+			h5(style="text-align:center;margin-top:15px")
+				br
+				br
+			//- p(style="margin-top:-20px")
+			
+			.invoice-body
+				.row
+					.col-xs-4
+						p(style="margin-top: 40px;")
+							b LR No. : #{" "+billty.lrno}
+							//- table(style="font-size: 10px")
+							//- 	//- tr
+							//- 	//- 	td LR No. : #{" "+billty.lrno}
+							//- 	tr
+							//- 		td #{" "+billty.consigner}
+							//- 	tr
+							//- 		td #{" "+resadd.bstreet1},#{" "+resadd.bstreet2},#{" "+resadd.bcity}
+							//- 	tr
+							//- 		td #{" "+resadd.bstate},#{" "+resadd.bzip},#{" "+resadd.bcountry},#{" "+resadd.bphone}
+							//- 	tr 
+							//- 		td Vendor Code:
+										
+					.col-xs-4
+						.panel.panel-default(style="padding:5px;")
+							table(style="font-size: 10px")
+								tr
+									td Customer's Name & Address
+								tr
+									td #{" "+billty.unloadingaddress}
+								tr
+									td #{" "+billty.contactperson}
+								tr
+									td #{" "+billty.phoneno}
+								tr
+									//- -var newdateis = billty.lrdate.split("-");
+									//- -var actdate = newdateis[2]+'/'+newdateis[1]+'/'newdateis[0];
+									td #{actdate} 
+									//- | Customer's Name & Address
+									//- br
+									//- u
+									//- 	p #{" "+billty.unloadingaddress}
+									//- 	p #{" "+billty.contactperson}
+									//- 	p #{" "+billty.phoneno}
+									//- | #{" "+billty.lrdate}
+					.col-xs-4
+						.panel.panel-default(style="padding:5px;")
+							table(style="font-size: 10px")
+								tr
+									td Date
+									td :
+									td 
+									td #{" "+billty.lrdate}
+								tr
+									td Truck No
+									td :
+									td 
+									td #{" "+billty.truckno}
+								tr
+									td From
+									td :
+									td 
+									td #{" "+billty.from}
+								tr
+									td To
+									td :
+									td 
+									td #{" "+billty.to}
+
+							//- 		| Date 
+							//- 		b
+							//- 			| :
+							//- 			b #{" "+billty.lrdate}
+							//- 			br
+							//- 			| Truck No 
+							//- 			b
+							//- 				| :
+							//- 				b #{" "+billty.truckno}
+							//- 			br
+							//- 			| From
+							//- 			b
+							//- 				| :
+							//- 				b #{" "+billty.from}
+							//- 			br
+							//- 			| To
+							//- 			b
+							//- 				| :
+							//- 				 #{" "+billty.to}
+							//- b				
+				.panel.panel-default
+					// <table class="table table-bordered table-condensed">
+					table.table.table-bordered
+						tbody(style='font-size: 10px;')
+							tr
+								td PACKAGES
+								td DESCRIPTION
+								td BAGS
+								td WEIGHT
+								td FREIGHT
+								td ADVANCE
+								td DIESEL
+								td BALANCE
+							
+							tr
+								td #{" "+billty.packages}
+								td #{" "+billty.contains}
+								td #{" "+billty.unit}
+								td #{" "+billty.actualweight}
+								td #{" "+billty.ppaymentmode}
+								//- td #{" "+values.newtotal+" "}
+								td #{" "+billty.totaltruckexpences}
+								td #{""+billty.dqty}
+								td 
+						
+							
+							tr
+								td(rowspan="2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Receiver Stamp    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									br 
+									br
+									br
+									br
+									br
+
+								//- I/We have read and understand the terms &amp; condition printed on overleaf and agree to abide by same.
+								//- 	br
+								//- 	span GST Under forward charge
+								td 
+								td 
+								td(colspan="2") Driver Name: #{" "+billty.drivername}
+								td(colspan="2") POLICY NO.
+								td
+							tr
+								td Invoice No. : #{" "+billty.newinvoiceno} 
+									
+								td Gate Pass No. : #{" "+billty.newgatepass}
+								td 
+								td Driver LIC No. 
+								td DATE : 
+								td #{" "+billty.lrdate}
+								td 
+
+				.row
+					.col-xs-12
+						p I/We have read and understand the terms &amp; condition printed on overleaf and agree to abide by same.  GST Under forward charge
+
+				//- .row
+				//- 	.col-xs-12
+				//- 		.panel.panel-default(style="padding:20px;")
+				
+				br
+				br
+				br
+				br
+				br
+				br
+				.row(style="margin-top:25px")
+					.col-xs-6
+						.panel.panel-default
+							.panel-body
+								dl.dl-horizontal
+
+									h5(style="text-align:center")
+										
+									
+									table.table.table-bordered.table-condensed
+										tbody(style='font-size: 10px;')
+											tr
+												td Lr No
+												td Date
+												td Truck
+												td From
+												td To
+											tr
+												td #{" "+billty.lrno}
+												td #{" "+billty.lrdate}
+												td #{" "+billty.truckno}
+												td #{" "+billty.from}
+												td #{" "+billty.to}
+
+									table.table.table-bordered.table-condensed
+										tbody(style='font-size: 10px;')
+											-if(billty.vehicletype == "Company")
+												tr
+													td Toll Tax
+													td Bhatta
+													td Loading
+													td Unloading
+													td Misc
+													td Diesel
+													td Diesel Amt.
+													td Total Rs.
+												tr
+													
+													td= values.newtoll
+													td= values.newbhatta
+													td= values.loading
+													td= billty.actualulexpences
+													td= values.newmisc
+													td= billty.dqty
+													td= billty.damount
+													td= billty.totaltruckexpences
+											-if(billty.vehicletype == "Attached")
+												tr
+													td Advance
+													td Diesel Qty.
+													td Diesel Amt.
+													td Total Rs.
+												tr
+													td= billty.totaltruckexpences
+													td= billty.dqty
+													td= billty.damount
+													-var ttttt =0;
+													-ttttt = billty.totaltruckexpences + billty.damount;
+													td #{ttttt}
+									
+													
+												
+					.col-xs-6
+						.panel.panel-default
+							.panel-body
+								dl.dl-horizontal
+									h5(style="text-align:center")
+									
+									table.table.table-bordered.table-condensed
+										tbody(style='font-size: 10px;')
+											tr
+												td Lr No
+												td Date
+												td Truck
+												td From
+												td To
+											tr
+												td #{" "+billty.lrno}
+												td #{" "+billty.lrdate}
+												td #{" "+billty.truckno}
+												td #{" "+billty.from}
+												td #{" "+billty.to}
+									table.table.table-bordered.table-condensed
+										tbody(style='font-size: 10px;')
+											tr
+												td Particulars
+												td Qty
+												td Rate
+												td Amount
+											
+											
+											tr
+												td= billty.dieselaccountname
+												td= billty.dqty
+												td= billty.drate
+												td= billty.damount
+									
+												
+											
