@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('backend:server');
+var http = require('http');
+var mongoose = require('mongoose');
+/**
+ * Get port from environment and store in Express.
+ */
+
+
+// var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '4000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+
+// connect to database
+
+// mongoose.connect('mongodb://localhost:27017/jstc_15505');
+// mongoose.connect('mongodb://localhost:27017/thetruckdemo');
+
+// mongoose.connect('mongodb://vinuraj:secretPasswordthetruckdemo@13.126.81.150:27017/thetruckdemo', {useNewUrlParser: true });
+
+mongoose.connect('mongodb://vinuraj:secretPasswordthetruckdemo@65.0.87.155:27017/truckdemopart2', {useNewUrlParser: true });
+
+
+// When the mongodb server goes down, mongoose emits a 'disconnected' event
+mongoose.connection.on('disconnected', () => { console.log('-> lost connection'); });
+// The driver tries to automatically reconnect by default, so when the
+// server starts the driver will reconnect and emit a 'reconnect' event.
+mongoose.connection.on('reconnect', () => { console.log('-> reconnected'); });
+
+// Mongoose will also emit a 'connected' event along with 'reconnect'. These
+// events are interchangeable.
+mongoose.connection.on('connected', () => { console.log('-> connected'); });
+

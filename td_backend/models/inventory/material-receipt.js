@@ -1,0 +1,105 @@
+const mongoose = require('mongoose');
+
+let multidestSchema = mongoose.Schema({   
+    name:{type:String,required: false},
+    item_id:{type:String,required: false},
+    qty:{type:String,required: false},
+    unit:{type:String,required: false},
+    price:{type:String,required: false},
+    discount:{type:String,required: false},
+    cgst:{type:String,required: false},
+    sgst:{type:String,required: false},
+    igst:{type:String,required: false},
+    total:{type:String,required: false}
+});
+
+
+const MaterialrsSchema = mongoose.Schema({    
+    mr_number: {
+        type: String,
+        required: false
+    },
+    mr_type: {
+        type: String,
+        required: false
+    },
+    site: {
+        type: String,
+        required: false
+    }, 
+    mr_date: {
+        type: Date,
+        required: false
+    },    
+    vendor: {
+        type: String,
+        required: false
+    },
+    department: {
+        type: String,
+        required: false
+    },
+    godown: {
+        type: String,
+        required: false
+    },
+    rec_type: {
+        type: String,
+        required: false
+    },
+    invno: {
+        type: String,
+        required: false
+    },
+    invdate: {
+        type: Date,
+        required: false
+    },
+    pjno: {
+        type: String,
+        required: false
+    },
+    narration: {
+        type: String,
+        required: false
+    },
+    rounded_off: {
+        type: String,
+        required: false
+    },
+    gross_amount: {
+        type: String,
+        required: false
+    },
+    cgst_amount: {
+        type: String,
+        required: false
+    },
+    sgst_amount: {
+        type: String,
+        required: false
+    },
+    igst_amount: {
+        type: String,
+        required: false
+    },
+    net_amount: {
+        type: String,
+        required: false
+    },
+    total_amount: {
+        type: String,
+        required: false
+    },
+    round_off_type: {
+        type: String,
+        required: false
+    },
+    user: {
+        type: String,
+        required: false
+    },   
+    materialr_items:[multidestSchema]
+
+})
+const Materialrs = module.exports = mongoose.model('Materialr', MaterialrsSchema);
