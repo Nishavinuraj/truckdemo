@@ -1,0 +1,159 @@
+html
+	head
+		title &lrm;
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=0.5')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		style.
+			body {
+			font-size: 10px;
+			}
+			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+				padding: 4px
+			}
+			@media print
+			{
+			.page-break {page-break-before:always}
+			}
+			@page { size: auto;  margin: 0mm; }
+			.panel {margin-bottom: 0}
+	body
+		- var n = 0;
+		- var i = 1;
+
+			div(style="text-align:center;")
+				br
+				h2 J. S. TRANSPORT CORPORATION
+				span Heera Plaza Complex, Near Telephone Exchanges Square
+				br
+				span Central Avenue Road, Nagpur.
+				br
+				span Mobile : 7768009803, E-mail Id : jstransportcorp@yahoo.com
+				h4 TAX INVOICE 
+
+				br
+
+			div(style="margin-left: 5%;")
+				b HSN CODE : 9967
+				br
+				b GSTIN Number : 27AAFFJ8703N3ZV
+				br
+				b STATE : Maharashtra
+				br
+				b STATE CODE : 27
+				br
+				b SERIAL NO IF INVOISE : #{ invoiceNo }
+					b(style="float:right; margin-right:20%;") DATE : #{ billDate }
+				br
+				b G.L.A./NO. 805000-----
+				br
+				b COST CENTRE NO. : 60007000
+				br
+				b PAN NO. : AAFFJ8703N
+				br
+
+				span Name-Manikgarh Cement Unit=II					
+				br
+				span Addr-Gadchandur, Dist-Chandrapur
+				br
+				span State-Maharashtra
+				br
+
+				b State Code: 27
+				br
+				b GSTIN Number : 27AAACC2659Q1Z6
+				br
+				b ACCOUNTING CODE: 00440262
+				br
+
+
+				
+
+			div(style="width: 100%; ")
+
+				br
+				table.table.table-bordered(style="font-size: 10px; width: 90%; margin-left:auto; margin-right:auto;")
+					tr(style="text-align:center;")
+						td(colspan="10") 
+							b TRANSPORTATION BILL FOR TRADE
+					tr
+						th(style="text-align:center;") SR NO
+						th VEHICLE NO.
+						th(style="text-align:center;") DELIVERY CHALLAN NO.
+						th(style="text-align:center;") INVOICE NO.
+						th(style="text-align:center;") DATE
+						th DESTINATION OF GOODS
+						th(style="text-align:center;") LR NO.
+						th(style="text-align:center;") WEIGHT QTY.(MT)
+						th RATE PMT
+						th(style="text-align:center;") TAXABLE AMOUNT
+					
+				
+					while n < total
+			
+						tr
+							td(style="text-align:center;") #{" "+result[n].srno}
+							td #{" "+result[n].vehicle_no}
+
+							td(style="text-align:center;") #{" "+result[n].delivery_challan}
+							td(style="text-align:center;") #{" "+result[n].invoice_no}
+							td(style="text-align:center;") #{" "+result[n].invoice_date}
+							td #{" "+result[n].destination}
+							td(style="text-align:center;") #{" "+result[n].lrno}
+							td(style="text-align:center;") #{" "+result[n].weight}
+							td #{" "+result[n].rate}
+							td(style="text-align:center;") #{" "+result[n].amount}
+
+						- n++
+						- i++
+
+					tr
+						th 
+						th 
+						th 
+						th 
+						th 
+						th 
+						th 
+						th(style="text-align:center;") #{ totalWeight }
+						th 
+						th(style="text-align:center;") #{ totalAmount }
+					tr 
+						td(colspan="9")
+							b TOTAL INVOICE VALUE IN FIRGURE
+							span(style="float:right;")  
+								b #{ cgst } % CGST
+						td
+							b #{ cgstTotal }
+					tr 
+						td(colspan="9")
+							b TOTAL INVOICE VALUE IN WORD (RS.)
+							b(style="float:right;") #{ sgst } % SGST
+						td
+							b #{ sgstTotal }
+
+					tr 
+						td(colspan="9")
+							b TAX PAYABLE ON FORWARD CHARGE ON TAXABLE AMOUNT OF RS.
+						td
+							b #{ mainTotal }
+			
+				br
+				.row(style="text-align:center;")
+					.col-xs-6
+					
+					.col-xs-6
+						span
+							b For J. S Transport Corporation
+						br
+						br
+					.col-xs-6
+					
+					.col-xs-6
+						span
+							b AUTHORISED SIGNATURE
+
+
+

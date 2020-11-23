@@ -1,0 +1,326 @@
+html
+	head
+		title &lrm;
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=0.5')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		style.
+			body {
+			font-size: 10px;
+			}
+			.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+				padding: 4px
+			}
+			@media print
+			{
+			.page-break {page-break-before:always}
+			}
+			@page { size: auto;  margin: 0mm; }
+			.panel {margin-bottom: 0}
+	body
+		- var n = 0;
+		- var i = 1;
+
+			
+			//-  First Page
+			div(style="width: 100%; height: 1080px")
+				br
+				br
+				br
+				br
+				br
+
+				
+				table.table.table(style="font-size: 10px; width: 90%; margin-left:auto; margin-right:auto;")
+					tr
+						td(style="width: 30%;") Vendor Code
+						td(style="width: 30%;") 
+							b 916003536
+						td(style="width: 20%;") Contact No.
+						td(style="width: 20%;") 
+							span(style="float:right;") 7763009803
+
+					tr
+						td(style="width: 30%;") Vendor Name
+						td(style="width: 30%;") 
+							b J.S. TRANSPORT CORP.
+						td(style="width: 20%;") E_mail id:
+						td(style="width: 20%;") jstransportcorp@yahoo.com
+
+					tr
+						td(style="width: 30%;") Primary/Secondary/Direc to Customer
+						td(style="width: 30%;") 
+							span Plant to Customer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							b ICI 
+						td(style="width: 20%;") Transp/WH
+						td(style="width: 20%;") transporter
+
+					tr
+						td(style="width: 30%;") Bill No
+						td(style="width: 30%;") 
+							b #{ invoiceNo }
+						td(style="width: 20%;") PAN
+						td(style="width: 20%;") AAFFJ8703N
+
+					tr
+						td(style="width: 30%;") Bill Date
+						td(style="width: 30%; text-align:center;") 
+							b #{ billDate }
+						td(style="width: 20%;") GST NO.
+						td(style="width: 20%;") 27AAFFJ8703N3ZV
+
+					tr
+						td(style="width: 30%;") Transportation bill from
+						td(style="width: 30%;") 
+							b CHANDA
+						td(style="width: 20%;") to
+						td(style="width: 20%;") NASIK WH
+
+				hr(style="width: 90%; margin-left:auto; margin-right:auto;")
+
+			
+				br
+				div(style="width: 50%; margin-left: 5%; float:left;")
+					br
+					span To
+					br
+					b ACC Limited
+					br
+					span Sales  Unit Office
+					br
+					span Salasar Park - 1
+					br
+					span West High Court Road, Giripath
+					br 
+					span NAGPUR - 440010
+
+
+				div 
+					table.table.table-bordered(style="font-size: 10px; width: 30%; margin-left:auto; margin-right:auto;")
+						tr
+							th ACC GST No. :
+							th 27AAACC2659Q1Z6
+						
+						tr
+							th SAC CODE :
+							th 996791
+
+				br 
+				br
+				br
+				
+				div(style="width: 90%; margin-left: 5%; margin-right:auto;; float:left;")
+					b #REF1
+				br
+
+				br
+
+
+				- var nn = 0;
+				- var ii = 1;
+				
+				table.table.table-bordered(style="font-size: 10px; width: 90%; margin-left:auto; margin-right:auto;")
+					tr
+						th(style="width: 30%;") SI No.
+						th(style="text-align:center; width: 25%;") Grade
+						th(style="text-align:right; width: 15%;") Qty
+						th(style="width: 15%;")
+						th(style="text-align:right; width: 15%;") Amount
+
+					while nn < sub_total
+
+						tr
+							th #{" "+first_page[nn].srno}
+							th(style="text-align:center;") #{" "+first_page[nn].grade}
+							th(style="text-align:right;") #{" "+first_page[nn].qty}
+							th 
+							th(style="text-align:right;") #{" "+first_page[nn].amount}
+						
+
+						- nn++
+						- ii++
+
+					tr
+						th
+						th
+						th
+						th
+						th(style="text-align:right;")  #{ totalAmount }
+
+					tr
+						th
+						th
+						th
+						th Add: #{ cgst } % CGST
+						th(style="text-align:right;")  #{ cgstTotal }
+
+					
+					tr
+						th
+						th
+						th
+						th Add: #{ sgst } % SGST
+						th(style="text-align:right;")  #{ sgstTotal }
+
+					tr(style="height: 22px;")
+						th
+						th
+						th
+						th
+						th
+
+					tr
+						th
+						th
+						th(style="text-align:right;") #{ totalQTY }
+						th #{ totalWeight }
+						th(style="text-align:right;") #{ mainTotal }
+
+
+				br
+				div(style="width: 90%; margin-left:auto; margin-right:auto;")
+					b Amount in Words 
+					br 
+					br
+					br 
+					br
+					br 
+					br
+					b 1st Approval [District / Area Office Incharge]
+					.row(style="text-align:center;")
+						.col-xs-6
+						
+						.col-xs-6
+							span
+								b For J. S Transport Corporation
+							br
+							br
+							br
+						.col-xs-6
+						
+						.col-xs-6
+							span
+								b AUTHORISED SIGNATURE
+					
+					br
+					br 
+					br
+					
+					.row
+						.col-xs-6
+							b 2nd Approval [Logistic Incharge]
+						
+						.col-xs-6
+							b For ACC Use
+
+					br
+					br 
+					br
+					br
+					br
+					b Comments
+
+				
+
+
+
+				
+
+
+			//-  Second Page						
+			div(style="margin-left: 5%;")
+				br
+				table.table.table-bordered(style="font-size: 10px; width: 50%;")
+					tr 
+						th Vendor Code: 
+						th 916003536
+						th Contact No.
+						th 7768009803
+
+					tr 
+						th Vendor Name:
+						th J.S. TRANSPORT CORP.
+						th E_mail id: 
+						th jstransportcorp@yahoo.com
+
+					tr 
+						th Primary/Secondary/Direct to Customer
+						th Plant to Customer-JS
+						th Transp/WH
+						th Transporter
+
+					tr 
+						th Bill No
+						th #{ invoiceNo }
+						th PAN No.
+						th AAFFJ8703N
+
+					tr 
+						th Bill Date
+						th #{ billDate }
+						th GST No.
+						th 27AAFFJ8703N3ZV
+
+					tr 
+						th Transportation bill from(Plant/WH)
+						th CHANDA
+						th to
+						th NASIK WH
+
+			div(style="width: 100%; ")
+
+				br
+				table.table.table-bordered(style="font-size: 10px; width: 90%; margin-left:auto; margin-right:auto;")
+					tr(style="height: 42px; ")
+						th(style="text-align:center;") Si No
+						th(style="text-align:center;") Customer No
+						th(style="text-align:center;") Customer Name
+						th(style="text-align:center;") DO No
+						th(style="text-align:center;") DC/DO_Date
+						th(style="text-align:center;") Truck No
+						th(style="text-align:center;") Grade
+						th(style="text-align:center;") Destination
+						th(style="text-align:center;") DC/DO Qty 
+						th(style="text-align:center;") Delivery Qty
+						th(style="text-align:center;") Rate
+						th(style="text-align:center;") Final Amount
+						th(style="text-align:center;") Bill No.
+
+				
+					while n < total
+			
+						tr
+							td #{" "+result[n].srno}
+							td #{" "+result[n].customer_no}
+							td #{" "+result[n].customer_name}
+							td #{" "+result[n].do_no}
+							td #{" "+result[n].do_date}
+							td #{" "+result[n].truckno}
+							td #{" "+result[n].grade}
+							td #{" "+result[n].destination}
+							td(style="text-align:right;") #{" "+result[n].qty} 
+							td(style="text-align:right;") #{" "+result[n].qty} 
+							td(style="text-align:right;") #{" "+result[n].rate} 
+							td(style="text-align:right;") #{" "+result[n].amount} 
+							td #{ invoiceNo }
+						- n++
+						- i++
+
+					tr
+						th
+						th
+						th
+						th
+						th Total DC/DO's
+						th #{ total }
+						th
+						th Totals
+						th(style="text-align:right;") #{ totalQTY }
+						th(style="text-align:right;") #{ totalQTY }
+						th
+						th(style="text-align:right;") #{ totalAmount }
+						th
+					
+
